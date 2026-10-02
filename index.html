@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Satch! ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(
+                135deg,
+                #ffd6e7,
+                #fff0f6,
+                #ffdce9
+            );
+            color: #6b3a4a;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           PAGES
+        ========================= */
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 30px 20px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .card {
+            width: 100%;
+            max-width: 720px;
+            background: rgba(255, 255, 255, 0.94);
+            padding: 35px 25px;
+            border-radius: 30px;
+
+            box-shadow:
+                0 10px 35px rgba(180, 80, 120, 0.2);
+
+            animation: fadeIn 0.8s ease;
+        }
+
+
+        /* =========================
+           PAGE 1
+        ========================= */
+
+        .flower {
+            font-size: 85px;
+            margin-bottom: 15px;
+
+            animation: float 2s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #d94f82;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           HEADINGS
+        ========================= */
+
+        h2 {
+            color: #d94f82;
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        button {
+            border: none;
+
+            background: #e96b9a;
+            color: white;
+
+            padding: 14px 28px;
+
+            border-radius: 30px;
+
+            font-size: 17px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 5px 15px rgba(220, 80, 130, 0.3);
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            background: #d95382;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+
+        /* =========================
+           PHOTOS
+        ========================= */
+
+        .photos {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+        .photos img {
+            width: 100%;
+            height: 230px;
+
+            object-fit: cover;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 5px 15px rgba(150, 70, 100, 0.2);
+
+            transition: 0.4s;
+
+            animation:
+                photoAppear 0.8s ease;
+        }
+
+        .photos img:hover {
+            transform:
+                scale(1.05)
+                rotate(1deg);
+        }
+
+
+        /* =========================
+           LETTER
+        ========================= */
+
+        .letter {
+            background: #fff5f9;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            text-align: left;
+
+            line-height: 1.7;
+
+            font-size: 16px;
+
+            box-shadow:
+                inset 0 0 15px
+                rgba(220, 100, 140, 0.1);
+        }
+
+        .letter p {
+            margin-bottom: 17px;
+        }
+
+        .signature {
+            text-align: right;
+
+            color: #d94f82;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        .heart {
+            position: fixed;
+
+            bottom: -40px;
+
+            font-size: 25px;
+
+            opacity: 0.7;
+
+            z-index: -1;
+
+            animation:
+                hearts 6s linear infinite;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            left: 30%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 55%;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(4) {
+            left: 80%;
+            animation-delay: 3s;
+        }
+
+
+        /* =========================
+           CONFETTI
+        ========================= */
+
+        .confetti {
+            position: fixed;
+
+            top: -30px;
+
+            font-size: 22px;
+
+            z-index: 100;
+
+            pointer-events: none;
+
+            animation:
+                fall 4s linear forwards;
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-15px);
+            }
+        }
+
+
+        @keyframes photoAppear {
+
+            from {
+                opacity: 0;
+                transform:
+                    scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    scale(1);
+            }
+        }
+
+
+        @keyframes hearts {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        @keyframes fall {
+
+            0% {
+                transform:
+                    translateY(-30px)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .card {
+                padding:
+                    30px 18px;
+            }
+
+            .flower {
+                font-size: 65px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            h2 {
+                font-size: 25px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .photos {
+                gap: 10px;
+            }
+
+            .photos img {
+                height: 170px;
+            }
+
+            .letter {
+                padding: 20px;
+
+                font-size: 15px;
+
+                line-height: 1.6;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         BACKGROUND MUSIC
+    ========================= -->
+
+    <audio id="bgMusic" loop>
+
+        <source
+            src="music.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+
+
+    <!-- =========================
+         FLOATING HEARTS
+    ========================= -->
+
+    <div class="heart">💗</div>
+
+    <div class="heart">💕</div>
+
+    <div class="heart">💖</div>
+
+    <div class="heart">💗</div>
+
+
+
+    <!-- =========================
+         PAGE 1
+    ========================= -->
+
+    <section
+        id="page1"
+        class="page active">
+
+        <div class="card">
+
+            <div class="flower">
+                🌷
+            </div>
+
+
+            <h1>
+                Happy Birthday, Satch! 🎂
+            </h1>
+
+
+            <p class="subtitle">
+                I have something for you 💗
+            </p>
+
+
+            <button
+                onclick="startBirthday()">
+
+                Click Here 💌
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PAGE 2
+    ========================= -->
+
+    <section
+        id="page2"
+        class="page">
+
+        <div class="card">
+
+
+            <h2>
+                📸 Our Memories
+            </h2>
+
+
+            <div class="photos">
+
+
+                <img
+                    src="photo1.jpeg"
+                    alt="Memory 1">
+
+
+                <img
+                    src="photo2.jpg"
+                    alt="Memory 2">
+
+
+                <img
+                    src="photo3.jpeg"
+                    alt="Memory 3">
+
+
+                <img
+                    src="photo4.jpeg"
+                    alt="Memory 4">
+
+
+                <img
+                    src="photo5.jpeg"
+                    alt="Memory 5">
+
+
+                <img
+                    src="photo6.jpg"
+                    alt="Memory 6">
+
+
+            </div>
+
+
+            <button
+                onclick="showPage('page3')">
+
+                Next 💌
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PAGE 3
+    ========================= -->
+
+    <section
+        id="page3"
+        class="page">
+
+        <div class="card">
+
+
+            <h2>
+                💌 My Letter For You
+            </h2>
+
+
+            <div class="letter">
+
+
+                <p>
+                    Hi Satch, happy happy 18th birthday! 🥳❤️
+                </p>
+
+
+                <p>
+                    Dali ra kaayo ang panahon. Murag gahapon ra tong Grade 10
+                    pa ta, nya nalusot pa jud imong tiil sa buslot sa gawas
+                    sa room HAHAHAHAHA. Karon legal age na ka, pwede na jud
+                    ka makulong HAHAHAHAHA.
+                </p>
+
+
+                <p>
+                    I hope you enjoy your day and take a break from all the
+                    stress sa acads, even just for today. Deserve nimo
+                    mag-enjoy, magkatawa, and spend the day with the people
+                    who make you happy.
+                </p>
+
+
+                <p>
+                    I know our friendship hasn’t always been perfect.
+                    Daghan na kaayo og nabag-o sa ato over the years,
+                    and maybe we’re not the same as we used to be.
+                    Pero despite everything, I’m still grateful nga
+                    nahimo tika nga friend. Grateful ko sa tanan memories,
+                    sa mga katawa, sa mga kabuang, and even sa mga moments
+                    nga lisod.
+                </p>
+
+
+                <p>
+                    I just want you to know nga naa ra gihapon ko.
+                    Maybe things have changed, pero wala nawala akong
+                    care as your friend. If ever you need someone to talk
+                    to, someone to listen to, or someone nga kuyog nimo
+                    sa kabuang, naa ra ko.
+                </p>
+
+
+                <p>
+                    I’m proud of how far you’ve come, and I hope this new
+                    chapter of your life brings you more happiness, peace,
+                    and good memories. I hope you continue to grow into
+                    the person you want to be.
+                </p>
+
+
+                <p>
+                    Happy 18th birthday, Satch! Enjoy your day, take care
+                    always, and remember nga naa gihapon kay friend diri
+                    nga always rooting for you. 🫶
+                </p>
+
+
+                <p class="signature">
+
+                    From jubelat 🤍
+
+                </p>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        /* CHANGE PAGE */
+
+        function showPage(pageId) {
+
+            document
+                .querySelectorAll(".page")
+                .forEach(function(page) {
+
+                    page.classList.remove("active");
+
+                });
+
+
+            document
+                .getElementById(pageId)
+                .classList.add("active");
+
+
+            if (pageId === "page3") {
+
+                createConfetti();
+
+            }
+
+        }
+
+
+
+        /* START BIRTHDAY */
+
+        function startBirthday() {
+
+            const music =
+                document.getElementById("bgMusic");
+
+
+            music
+                .play()
+                .catch(function(error) {
+
+                    console.log(
+                        "Music could not play:",
+                        error
+                    );
+
+                });
+
+
+            showPage("page2");
+
+        }
+
+
+
+        /* CREATE CONFETTI */
+
+        function createConfetti() {
+
+            const emojis = [
+
+                "💗",
+                "💕",
+                "💖",
+                "✨",
+                "🌸",
+                "🎉"
+
+            ];
+
+
+            for (
+                let i = 0;
+                i < 30;
+                i++
+            ) {
+
+
+                const confetti =
+                    document.createElement("div");
+
+
+                confetti.classList.add(
+                    "confetti"
+                );
+
+
+                confetti.innerHTML =
+                    emojis[
+                        Math.floor(
+                            Math.random()
+                            * emojis.length
+                        )
+                    ];
+
+
+                confetti.style.left =
+                    Math.random()
+                    * 100
+                    + "vw";
+
+
+                confetti.style.animationDelay =
+                    Math.random()
+                    * 2
+                    + "s";
+
+
+                document
+                    .body
+                    .appendChild(
+                        confetti
+                    );
+
+
+                setTimeout(
+                    function() {
+
+                        confetti.remove();
+
+                    },
+                    5000
+                );
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
